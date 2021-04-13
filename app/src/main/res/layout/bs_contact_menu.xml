@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/default_cell_margin"
+    android:background="@drawable/bg_menu_view"
+    android:layout_marginTop="@dimen/menu_top_margin"
+    >
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="3dp"
+        android:background="@color/c_989898"
+        android:layout_gravity="center_horizontal"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="52dp"
+        android:fillViewport="true"
+        android:layout_marginTop="38dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/c_313131"
+                android:layout_marginTop="@dimen/default_start_end_margin" />
+
+            <LinearLayout
+                android:id="@+id/btn_telegram"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bs_menu_button_height"
+                android:layout_marginTop="@dimen/menu_top_margin"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_telegram" />
+
+                <TextView
+                    android:id="@+id/txt_telegram"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:lineHeight="22dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/c_313131"
+                android:layout_marginTop="@dimen/default_start_end_margin" />
+
+            <LinearLayout
+                android:id="@+id/btn_discord"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bs_menu_button_height"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/menu_top_margin"
+                android:visibility="gone"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@mipmap/ic_discord"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/txt_discord"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    app:lineHeight="22dp"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/c_313131"
+                android:layout_marginTop="@dimen/default_start_end_margin" />
+            <LinearLayout
+                android:id="@+id/btn_skype"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bs_menu_button_height"
+                android:layout_marginTop="@dimen/menu_top_margin"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_play_pause"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@mipmap/ic_skype"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/txt_skype"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    app:lineHeight="22dp"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/c_313131"
+                android:layout_marginTop="@dimen/default_start_end_margin" />
+            <LinearLayout
+                android:id="@+id/btn_instagram"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bs_menu_button_height"
+                android:layout_marginTop="@dimen/menu_top_margin"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/ic_instagram"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_instagram"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    app:lineHeight="22dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_corner_radius"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:lineHeight="19dp"
+        android:layout_gravity="bottom"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

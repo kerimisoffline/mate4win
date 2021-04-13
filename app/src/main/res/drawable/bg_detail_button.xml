@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="@color/pink_100"
+        android:endColor="@color/pink_500"
+        android:angle="0"/>
+    <padding android:top="5dp" android:bottom="5dp" android:left="10dp" android:right="10dp"/>
+</shape>

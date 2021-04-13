@@ -1,0 +1,6 @@
+/*
+ * Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+ */
+
+include ':app'
+rootProject.name = "Mate4win"

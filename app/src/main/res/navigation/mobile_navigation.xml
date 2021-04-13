@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_category">
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="app.mate4win.gg.ui.home.CategoryFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="app.mate4win.gg.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_post"
+        android:name="app.mate4win.gg.ui.home.PostFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_post" />
+    <fragment
+        android:id="@+id/navigation_groups_detail"
+        android:name="app.mate4win.gg.ui.groups.GroupsDetailFragment"
+        android:label="@string/menu_groups"
+        tools:layout="@layout/fragment_groups_detail" />
+    <fragment
+        android:id="@+id/navigation_groups"
+        android:name="app.mate4win.gg.ui.groups.GroupsFragment"
+        android:label="@string/menu_groups"
+        tools:layout="@layout/fragment_groups" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="app.mate4win.gg.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="app.mate4win.gg.ui.profile.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/navigation_adding"
+        android:name="app.mate4win.gg.ui.groups.AddingFragment"
+        android:label="@string/menu_adding"
+        tools:layout="@layout/fragment_adding" />
+</navigation>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+
+<resources>
+    <string name="app_name">Mate4win</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_home">HomePage</string>
+    <string name="menu_category">Category</string>
+    <string name="menu_groups">Groups</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_adding">Group Add</string>
+
+    <string name="txt_mobile">Mobile Games</string>
+    <string name="txt_pc">PC Games</string>
+    <string name="content_description">@null</string>
+
+    <string name="first_name">Name "nickname" Surname</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="register">Register</string>
+    <string name="email_txt">Email</string>
+    <string name="password_txt">Password</string>
+    <string name="forgot_pass"><u>Forgot Password</u></string>
+    <string name="contact">İletişim Bilgileri</string>
+
+
+    <string name="ok">Okay</string>
+    <string name="cancel">Cancel</string>
+
+
+
+    <string name="connection">There was problem in your internet connection</string>
+
+
+</resources>

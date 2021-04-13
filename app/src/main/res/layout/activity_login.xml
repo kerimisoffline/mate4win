@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="30sp"
+        android:textColor="@color/app_color"
+        android:text="@string/sign_in"
+        android:gravity="center"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/default_cell_margin"
+        android:layout_marginStart="@dimen/default_cell_margin"
+        android:layout_marginEnd="@dimen/default_cell_margin"
+        app:lineHeight="25dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bgImage"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginLayout"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/default_cell_margin"
+        android:layout_marginEnd="@dimen/default_cell_margin"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email_txt"
+            android:textSize="20sp"
+            android:layout_marginTop="@dimen/grid_spacing"
+            android:textColor="@color/c_383838" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="@dimen/default_cell_margin"
+            app:lineHeight="24dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/password_txt"
+            android:textSize="20sp"
+            android:layout_marginTop="@dimen/default_cell_margin"
+            android:textColor="@color/c_383838" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/black"
+            android:inputType="textPassword"
+            android:layout_marginTop="@dimen/default_cell_margin"
+            app:lineHeight="24dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/app_color_light"
+            android:layout_marginTop="@dimen/default_cell_margin"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:onClick="next"
+            app:lineHeight="19dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/app_color_light"
+            android:layout_marginTop="@dimen/default_cell_margin"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:onClick="register"
+            app:lineHeight="19dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="14sp"
+            android:textColor="@color/app_color_light"
+            android:text="@string/forgot_pass"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/default_cell_margin"
+            android:layout_marginStart="@dimen/default_cell_margin"
+            android:layout_marginEnd="@dimen/default_cell_margin"
+            android:onClick="forgot_password"
+            app:lineHeight="19dp"/>
+
+        </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cLayout">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_filter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/default_bg_filter_bottom_corner"
+            android:contentDescription="@string/content_description"/>
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/default_cell_margin">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/content_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_back"
+            android:tint="@color/black"
+            android:visibility="visible"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_logout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/content_description"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:layout_marginRight="@dimen/default_cell_margin"
+        android:tint="@color/black"
+            android:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/img_user"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:background="@drawable/ic_astronaut_helmet"
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:contentDescription="@string/content_description"/>
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="24sp"
+                android:text="@string/first_name"
+                android:layout_marginTop="25dp"/>
+
+            <ImageView
+                android:id="@+id/line_1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/default_line_bg"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_mail"
+                    android:visibility="visible"
+                    android:contentDescription="@string/content_description"/>
+                <TextView
+                    android:id="@+id/txt_mail"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="24sp"
+                    android:text="mail"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_back"
+                    android:rotation="180"
+                    android:contentDescription="@string/content_description"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/line_2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/default_line_bg"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_dc"
+                    android:visibility="visible"
+                    android:contentDescription="@string/content_description"/>
+                <TextView
+                    android:id="@+id/txt_dc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="24sp"
+                    android:text="dc"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_back"
+                    android:rotation="180"
+                    android:contentDescription="@string/content_description"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/line_3"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/default_line_bg"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_phone"
+                    android:visibility="visible"
+                    android:contentDescription="@string/content_description"/>
+                <TextView
+                    android:id="@+id/txt_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="24sp"
+                    android:text="phone"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_back"
+                    android:rotation="180"
+                    android:contentDescription="@string/content_description"
+                    android:layout_marginStart="@dimen/default_cell_margin"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/default_line_bg"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

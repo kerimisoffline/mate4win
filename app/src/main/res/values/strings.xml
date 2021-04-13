@@ -1,0 +1,39 @@
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+
+<resources>
+    <string name="app_name">Mate4win</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_home">Anasayfa</string>
+    <string name="menu_category">Kategori</string>
+    <string name="menu_groups">Gruplar</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_settings">Ayarlar</string>
+    <string name="menu_adding">Grup Ekleme</string>
+
+    <string name="txt_mobile">Mobil Oyunlar</string>
+    <string name="txt_pc">PC Oyunları</string>
+    <string name="content_description">@null</string>
+
+    <string name="first_name">Adı "nickname" Soyadı</string>
+
+    <string name="sign_in">Giriş Yap</string>
+    <string name="register">Kayıt Ol</string>
+    <string name="email_txt">Email</string>
+    <string name="password_txt">Şifre</string>
+    <string name="forgot_pass"><u>Şifremi Unuttum</u></string>
+    <string name="contact">İletişim Bilgileri</string>
+
+
+    <string name="ok">Tamam</string>
+    <string name="cancel">İptal</string>
+
+
+
+    <string name="connection">İnternet bağlantın sıkıntılı</string>
+
+
+</resources>
