@@ -31,18 +31,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/c_313131"
-                android:layout_marginTop="@dimen/default_start_end_margin" />
-
             <LinearLayout
                 android:id="@+id/btn_telegram"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/bs_menu_button_height"
-                android:layout_marginTop="@dimen/menu_top_margin"
+                android:layout_marginTop="@dimen/contact_grid_margin"
                 android:orientation="horizontal"
                 android:visibility="gone"
                 >
@@ -68,18 +61,12 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/c_313131"
-                android:layout_marginTop="@dimen/default_start_end_margin" />
-
             <LinearLayout
                 android:id="@+id/btn_discord"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/bs_menu_button_height"
                 android:orientation="horizontal"
-                android:layout_marginTop="@dimen/menu_top_margin"
+                android:layout_marginTop="@dimen/contact_grid_margin"
                 android:visibility="gone"
                 >
 
@@ -103,16 +90,11 @@
                     app:lineHeight="22dp"/>
 
             </LinearLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/c_313131"
-                android:layout_marginTop="@dimen/default_start_end_margin" />
             <LinearLayout
                 android:id="@+id/btn_skype"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/bs_menu_button_height"
-                android:layout_marginTop="@dimen/menu_top_margin"
+                android:layout_marginTop="@dimen/contact_grid_margin"
                 android:orientation="horizontal"
                 android:visibility="gone"
                 >
@@ -138,22 +120,17 @@
                     app:lineHeight="22dp"/>
 
             </LinearLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/c_313131"
-                android:layout_marginTop="@dimen/default_start_end_margin" />
             <LinearLayout
                 android:id="@+id/btn_instagram"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/bs_menu_button_height"
-                android:layout_marginTop="@dimen/menu_top_margin"
+                android:layout_marginTop="@dimen/contact_grid_margin"
                 android:visibility="gone"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@mipmap/ic_instagram"
                     android:layout_gravity="center"
                     android:scaleType="fitXY"

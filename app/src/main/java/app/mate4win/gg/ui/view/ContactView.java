@@ -44,6 +44,7 @@ public class ContactView extends BottomSheetDialog {
     private View dialogView;
     private Unbinder unbinder;
     public Groups c_groups;
+    private BottomSheetBehavior bottomSheetBehavior;
 
     @BindView(R.id.btn_telegram) LinearLayout btn_telegram;
     @BindView(R.id.btn_discord) LinearLayout btn_discord;
@@ -87,24 +88,31 @@ public class ContactView extends BottomSheetDialog {
 
         unbinder = ButterKnife.bind(this, dialogView);
 
-        if(c_groups!=null && c_groups.getDc_adress()!=null) {
+        if(c_groups!=null && c_groups.getDc_adress()!=null && !c_groups.getDc_adress().equals("")) {
             txt_discord.setText(c_groups.getDc_adress());
             btn_discord.setVisibility(View.VISIBLE);
-        }
-        if(c_groups!=null && c_groups.getInsta_adress()!=null) {
+        }else
+            btn_discord.setVisibility(View.GONE);
+
+        if(c_groups!=null && c_groups.getInsta_adress()!=null && !c_groups.getInsta_adress().equals("")) {
             txt_instagram.setText(c_groups.getInsta_adress());
             btn_instagram.setVisibility(View.VISIBLE);
 
-        }
-        if(c_groups!=null && c_groups.getSkype_adress()!=null) {
+        }else
+            btn_instagram.setVisibility(View.GONE);
+
+
+        if(c_groups!=null && c_groups.getSkype_adress()!=null && !c_groups.getSkype_adress().equals("")) {
             txt_skype.setText(c_groups.getSkype_adress());
             btn_skype.setVisibility(View.VISIBLE);
-        }
-        if(c_groups!=null && c_groups.getTelegram()!=null) {
+        }else
+            btn_skype.setVisibility(View.GONE);
+
+        if(c_groups!=null && c_groups.getTelegram()!=null && !c_groups.getTelegram().equals("")) {
             txt_telegram.setText(c_groups.getTelegram());
             btn_telegram.setVisibility(View.VISIBLE);
-        }
-
+        }else
+            btn_telegram.setVisibility(View.GONE);
 
         setCancelable(true);
 
@@ -135,6 +143,7 @@ public class ContactView extends BottomSheetDialog {
         setContentView(dialogView);
         BottomSheetBehavior mBehavior = BottomSheetBehavior.from((View) dialogView.getParent());
         mBehavior.setPeekHeight(getContext().getResources().getDisplayMetrics().heightPixels);
+        mBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
 
     }
 }

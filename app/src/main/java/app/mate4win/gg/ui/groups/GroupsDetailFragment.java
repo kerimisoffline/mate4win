@@ -7,12 +7,14 @@ package app.mate4win.gg.ui.groups;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import app.mate4win.gg.R;
+import app.mate4win.gg.activity.MainActivity;
 import app.mate4win.gg.adapter.GroupsAdapter;
 import app.mate4win.gg.adapter.GroupsDetailAdapter;
 import app.mate4win.gg.task.AsyncResponse;
@@ -38,6 +40,9 @@ public class GroupsDetailFragment extends BaseFragment {
     @BindView(R.id.txt_title) TextView txt_title;
     @BindView(R.id.txt_sub_title) TextView txt_sub_title;
     @BindView(R.id.txt_description) TextView txt_description;
+    @BindView(R.id.txt_pending) TextView txt_pending;
+    @BindView(R.id.btn_pending) LinearLayout btn_pending;
+
     @BindView(R.id.btn_detail) FrameLayout btn_detail;
 
     @BindDimen(R.dimen.grid_spacing) int grid_spacing;
@@ -74,6 +79,14 @@ public class GroupsDetailFragment extends BaseFragment {
                     }
                 });
                 contactView.show();
+            }
+        });
+
+        btn_pending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(MainActivity.Current!=null)
+                    MainActivity.Current.Navigate(R.id.navigation_groups_pending,null,null,null);
             }
         });
 

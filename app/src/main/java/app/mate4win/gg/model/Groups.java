@@ -24,6 +24,7 @@ public class Groups {
     private String categories;
     private String member_count;
     private List<Member> members;
+    private List<Member> pending;
 
     public String getId() {
         return id;
@@ -87,5 +88,9 @@ public class Groups {
 
     public List<Member> getMembers() {
         return members;
+    }
+
+    public List<Member> getPending() {
+        return pending;
     }
 }

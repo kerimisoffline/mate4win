@@ -80,7 +80,6 @@ public class FetchGroups {
 
                     if(groups.size() > 0)
                         Data.groups = groups;
-                    String fo =  Data.groups.get(0).getMembers().get(0).getNick_name();
                     groups = null;
                 }
                 dataArray = null;
