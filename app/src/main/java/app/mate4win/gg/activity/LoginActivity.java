@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import app.mate4win.gg.R;
@@ -83,5 +85,17 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         }));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getSupportActionBar().hide();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        getSupportActionBar().show();
     }
 }

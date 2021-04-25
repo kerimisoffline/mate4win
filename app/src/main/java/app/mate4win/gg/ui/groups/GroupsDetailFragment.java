@@ -102,6 +102,15 @@ public class GroupsDetailFragment extends BaseFragment {
             txt_title.setText(selectedGroups.getTitle());
             txt_sub_title.setText(selectedGroups.getSub_title());
             txt_description.setText(selectedGroups.getDescription());
+
+            if(selectedGroups.getPending()!=null) {
+                if (selectedGroups.getPending().size() == 0)
+                    txt_pending.setVisibility(View.GONE);
+                else {
+                    txt_pending.setVisibility(View.VISIBLE);
+                    txt_pending.setText(String.valueOf(selectedGroups.getPending().size()));
+                }
+            }
         }
         if(groupsDetailAdapter == null)
             groupsDetailAdapter = new GroupsDetailAdapter(getContext());

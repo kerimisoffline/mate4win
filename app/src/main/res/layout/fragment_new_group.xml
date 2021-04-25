@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/group_button_height"
+        android:layout_marginTop="@dimen/group_top_margin">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="3dp"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="43dp"
+            android:layout_marginEnd="43dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/new_group"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:lineHeight="24dp"/>
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="80dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/default_cell_margin"
+            android:layout_marginEnd="@dimen/default_cell_margin">
+
+            <LinearLayout
+                android:id="@+id/lyt_new_group"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"
+                    app:lineHeight="24dp"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"
+                    app:lineHeight="19dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sub_title"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"
+                    app:lineHeight="24dp"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_sub_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"
+                    app:lineHeight="19dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/group_platform"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"
+                    app:lineHeight="24dp"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_platform"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"
+                    app:lineHeight="19dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_categories"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"
+                    app:lineHeight="24dp"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"
+                    app:lineHeight="19dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lyt_contact_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_txt"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/telegram"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_telegram"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dc_adress"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_button_height"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_discord"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skype_adress"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_skype"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:inputType="textPassword"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/insta_adress"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/group_top_margin"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_instagram"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/group_button_height"
+                    android:textSize="14sp"
+                    android:textColor="@color/c_989898"
+                    android:textColorHint="@color/black"
+                    android:inputType="textPassword"
+                    android:background="@android:color/transparent"
+                    android:layout_marginTop="10dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/c_262525"
+                    android:contentDescription="@string/content_description"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/default_cell_margin"
+                android:layout_marginBottom="@dimen/default_cell_margin">
+
+                <TextView
+                    android:id="@+id/btn_contact"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_contact"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:gravity="center_vertical"
+                    app:lineHeight="19dp"
+                    android:layout_marginTop="@dimen/default_cell_margin"
+                    android:layout_marginBottom="@dimen/group_top_margin"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_corner_radius"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:text="@string/create"
+                    android:textAllCaps="false"
+                    app:lineHeight="19dp"/>
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

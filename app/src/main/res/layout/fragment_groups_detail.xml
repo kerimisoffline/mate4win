@@ -83,8 +83,8 @@
         app:layout_constraintTop_toTopOf="parent"
         >
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_hourglass"
             />
@@ -96,7 +96,25 @@
             android:textSize="16sp"
             android:maxLines="2"
             android:ellipsize="end"
-            app:lineHeight="20dp"/>
+            app:lineHeight="15dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/default_cell_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="47dp"
+        >
+        <ImageView
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_settings_24"
+            />
     </LinearLayout>
     <FrameLayout
         android:id="@+id/btn_detail"

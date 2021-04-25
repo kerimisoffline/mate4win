@@ -29,6 +29,11 @@
         android:label="@string/menu_groups"
         tools:layout="@layout/fragment_groups_detail" />
     <fragment
+        android:id="@+id/navigation_new_group"
+        android:name="app.mate4win.gg.ui.groups.NewGroupFragment"
+        android:label="@string/menu_groups"
+        tools:layout="@layout/fragment_new_group" />
+    <fragment
         android:id="@+id/navigation_groups_pending"
         android:name="app.mate4win.gg.ui.groups.GroupsPendingFragment"
         android:label="@string/menu_groups"
@@ -48,9 +53,4 @@
         android:name="app.mate4win.gg.ui.profile.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
-    <fragment
-        android:id="@+id/navigation_adding"
-        android:name="app.mate4win.gg.ui.groups.AddingFragment"
-        android:label="@string/menu_adding"
-        tools:layout="@layout/fragment_adding" />
 </navigation>

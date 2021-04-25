@@ -13,6 +13,8 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import app.mate4win.gg.R;
 import app.mate4win.gg.activity.MainActivity;
 import app.mate4win.gg.adapter.GroupsAdapter;
@@ -35,8 +37,9 @@ public class GroupsFragment extends BaseFragment {
 
     public static GroupsFragment fragment;
 
-    @BindView(R.id.rv_groups)
-    RecyclerView rv_groups;
+    @BindView(R.id.rv_groups) RecyclerView rv_groups;
+    @BindView(R.id.btn_new_group) FloatingActionButton btn_new_group;
+
     @BindDimen(R.dimen.grid_spacing) int grid_spacing;
 
 
@@ -71,6 +74,14 @@ public class GroupsFragment extends BaseFragment {
 
                 if(MainActivity.Current!=null)
                     MainActivity.Current.Navigate(R.id.navigation_groups_detail,null,null,null);
+            }
+        });
+
+        btn_new_group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(MainActivity.Current!=null)
+                    MainActivity.Current.Navigate(R.id.navigation_new_group,null,null,null);
             }
         });
     }

@@ -109,7 +109,6 @@
             android:layout_marginTop="@dimen/default_cell_margin"
             android:layout_marginStart="@dimen/default_cell_margin"
             android:layout_marginEnd="@dimen/default_cell_margin"
-            android:onClick="forgot_password"
             app:lineHeight="19dp"/>
 
         </LinearLayout>

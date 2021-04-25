@@ -30,7 +30,26 @@
 
     <string name="ok">Tamam</string>
     <string name="cancel">İptal</string>
+    <string name="create">Oluştur</string>
+    <string name="save">Kaydet</string>
+    <string name="delete">Sil</string>
 
+    <string name="new_group">Yeni Grup Oluştur</string>
+
+    <!-- New Group
+    -->
+    <string name="add_contact"><u>İletişim Bilgileri Ekle</u></string>
+    <string name="title">Grup İsmi</string>
+    <string name="sub_title">Grup Açıklaması</string>
+    <string name="email">Email</string>
+    <string name="country">Ülke</string>
+    <string name="city">Şehir</string>
+    <string name="telegram">Telegram</string>
+    <string name="dc_adress">Discord</string>
+    <string name="insta_adress">İnstagram</string>
+    <string name="skype_adress">Skype</string>
+    <string name="group_platform">Platform Seçiniz</string>
+    <string name="select_categories">Oyun Seçiniz</string>
 
 
     <string name="connection">İnternet bağlantın sıkıntılı</string>
