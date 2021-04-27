@@ -18,8 +18,8 @@
 
     <dimen name="group_button_height">40dp</dimen>
     <dimen name="group_top_margin">35dp</dimen>
-
-
+    <dimen name="title_bar_height">24dp</dimen>
+    <dimen name="group_settings_height">45dp</dimen>
 
     <dimen name="icon_size">30dp</dimen>
 

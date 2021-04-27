@@ -42,6 +42,7 @@ public class GroupsDetailFragment extends BaseFragment {
     @BindView(R.id.txt_description) TextView txt_description;
     @BindView(R.id.txt_pending) TextView txt_pending;
     @BindView(R.id.btn_pending) LinearLayout btn_pending;
+    @BindView(R.id.btn_settings) LinearLayout btn_settings;
 
     @BindView(R.id.btn_detail) FrameLayout btn_detail;
 
@@ -90,6 +91,13 @@ public class GroupsDetailFragment extends BaseFragment {
             }
         });
 
+        btn_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(MainActivity.Current!=null)
+                    MainActivity.Current.Navigate(R.id.navigation_groups_settings,null,null,null);
+            }
+        });
 
         ItemClickSupport.addTo(rv_members).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
