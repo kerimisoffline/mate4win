@@ -23,6 +23,7 @@ public class Groups {
     private String group_platform;
     private String categories;
     private String member_count;
+    private String situation;
     private List<Member> members;
     private List<Member> pending;
 
@@ -85,6 +86,10 @@ public class Groups {
     public String getCreator_id() { return creator_id; }
 
     public String getMember_count() { return member_count; }
+
+    public String getSituation() {
+        return situation;
+    }
 
     public List<Member> getMembers() {
         return members;

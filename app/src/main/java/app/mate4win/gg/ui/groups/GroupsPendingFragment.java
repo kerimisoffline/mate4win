@@ -6,7 +6,9 @@ package app.mate4win.gg.ui.groups;
 
 import android.content.DialogInterface;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,13 +17,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import app.mate4win.gg.R;
 import app.mate4win.gg.adapter.GroupsDetailAdapter;
 import app.mate4win.gg.adapter.GroupsPendingAdapter;
+import app.mate4win.gg.model.Groups;
+import app.mate4win.gg.task.AsyncResponse;
+import app.mate4win.gg.task.FetchGroupsTask;
 import app.mate4win.gg.ui.BaseFragment;
 import app.mate4win.gg.ui.view.ContactView;
+import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.GridItemDecoration;
 import app.mate4win.gg.util.ItemClickSupport;
 import butterknife.BindDimen;
 import butterknife.BindView;
 
+import static app.mate4win.gg.util.Config.progressDialogMessage;
+import static app.mate4win.gg.util.Data.groups;
 import static app.mate4win.gg.util.Data.selectedGroups;
 
 public class GroupsPendingFragment extends BaseFragment {
@@ -67,6 +75,29 @@ public class GroupsPendingFragment extends BaseFragment {
         if(groupsPendingAdapter != null) {
             groupsPendingAdapter.UpdateData(selectedGroups.getPending());
         }
+    }
+
+    public void notifyData(){
+        progressDialogMessage(getContext(), "...");
+        if(Data.member!=null) {
+            getRunner().executeAsync(new FetchGroupsTask(getContext(),Data.member.getId(), new AsyncResponse() {
+                @Override
+                public void processFinish(Object output) {
+                    progressDialogMessage(null, null);
+                    if (fragment == null)
+                        return;
+
+                    if(groups!=null)
+                        if(selectedGroups!=null){
+                            for(Groups g: groups)
+                                if(g.getId().equals(selectedGroups.getId()))
+                                    selectedGroups = g;
+                        }
+                    setData();
+                }
+            }));
+        }
+
     }
 
     @Override

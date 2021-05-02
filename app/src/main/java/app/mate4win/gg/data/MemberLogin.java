@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import app.mate4win.gg.util.NetworkUtil;
 
+import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 import static app.mate4win.gg.util.Config.ltrim;
@@ -32,7 +33,7 @@ public class MemberLogin {
         try {
             params.put("email", ltrim(rtrim(email)));
             params.put("password", ltrim(rtrim(password)));
-            DataConfig.serviceURL = "http://192.168.1.103:8888/login.php";
+            DataConfig.serviceURL = baseURL + "login.php";
 
             jsonObject = new CallService(context).getService(params, "PUT", null, true);
             if(jsonObject == null)

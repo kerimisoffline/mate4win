@@ -21,6 +21,7 @@ import app.mate4win.gg.activity.MainActivity;
 import app.mate4win.gg.adapter.CategoriesAdapter;
 import app.mate4win.gg.task.AsyncResponse;
 import app.mate4win.gg.task.FetchCategoriesTask;
+import app.mate4win.gg.task.FetchGroupsTask;
 import app.mate4win.gg.ui.BaseFragment;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.GridItemDecoration;
@@ -64,6 +65,8 @@ public class HomeFragment extends BaseFragment {
         setAdapter();
         fetchCategoryTask(Data.selectedPlatform.getPlatform());
 
+        if(Data.member.getId()!=null)
+            fetchGroupTask();
 
         ItemClickSupport.addTo(rv_categories).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
@@ -104,6 +107,21 @@ public class HomeFragment extends BaseFragment {
                 setData();
             }
         }));
+    }
+
+    private void fetchGroupTask(){
+        progressDialogMessage(getContext(), "...");
+        if(Data.member!=null) {
+            getRunner().executeAsync(new FetchGroupsTask(getContext(),Data.member.getId(), new AsyncResponse() {
+                @Override
+                public void processFinish(Object output) {
+                    progressDialogMessage(null, null);
+                    if (Current == null)
+                        return;
+                    setData();
+                }
+            }));
+        }
     }
 
     @Override

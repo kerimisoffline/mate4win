@@ -4,13 +4,16 @@
 
 package app.mate4win.gg.data;
 
+/*
+ * Created by Abdulkerim Yıldırım (kermmyldrm@gmail.com)
+ */
+
 import android.content.Context;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import app.mate4win.gg.model.Cache;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.NetworkUtil;
 
@@ -18,7 +21,7 @@ import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 
-public class DeleteGroup {
+public class UpdateGroup {
 
     private String e_message="";
     private String errorMessage;
@@ -26,24 +29,34 @@ public class DeleteGroup {
     private JSONObject jsonObject;
     int CallCount = 0;
 
-    public void Call(final Context context, String group_id) {
+    public void Call(final Context context, String title, String sub_title, String platform, String category, String email, String telegram, String discord, String skype, String instagram) {
         if(!NetworkUtil.isOnline(context) || CallCount >= call_count)
             return;
 
         CallCount++;
         final JSONObject params = new JSONObject();
         try {
-            DataConfig.serviceURL =  baseURL + "delete_group.php";
-            params.put("group_id", group_id);
+            DataConfig.serviceURL = baseURL + "update_group.php";
+            params.put("command", "post");
+            params.put("title", title);
+            params.put("sub_title", sub_title);
+            params.put("creator_id", Data.member.getId());
+            params.put("group_platform", platform);
+            params.put("categories", category);
+            params.put("email", email);
+            params.put("telegram", telegram);
+            params.put("dc_adress", discord);
+            params.put("skype_adress", skype);
+            params.put("insta_adress", instagram);
 
             jsonObject = new CallService(context).getService(params, "PUT", null, false);
             if(jsonObject == null)
-                Call(context, group_id);
+                Call(context, title, sub_title, platform, category, email, telegram, discord, skype, instagram);
             else{
                 if(jsonObject.has("result"))
                     Response(jsonObject);
                 else
-                    Call(context, group_id);
+                    Call(context, title, sub_title, platform, category, email, telegram, discord, skype, instagram);
             }
         } catch (JSONException e) {
             e.printStackTrace();

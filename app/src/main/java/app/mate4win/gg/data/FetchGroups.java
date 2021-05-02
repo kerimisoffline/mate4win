@@ -21,6 +21,7 @@ import app.mate4win.gg.model.Groups;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.NetworkUtil;
 
+import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 
@@ -41,7 +42,7 @@ public class FetchGroups {
         CallCount++;
         try {
             String cache = Data.getCache(context).getCache(Cache.KEY_CATEGORIES);
-            DataConfig.serviceURL = "http://192.168.1.103:8888/fetch_group.php";
+            DataConfig.serviceURL = baseURL + "fetch_group.php";
             if(NetworkUtil.isOnline(context)) {
                 final JSONObject params = new JSONObject();
                 params.put("id", member_id);

@@ -16,6 +16,7 @@ import app.mate4win.gg.model.Member;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.NetworkUtil;
 
+import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 import static app.mate4win.gg.util.Config.ltrim;
@@ -35,7 +36,7 @@ public class MemberLogged {
         JSONObject jsonObject = null;
         try {
             String cache_logged = Data.getCache(context).getCache(Cache.KEY_LOGGED_MEMBER);
-            DataConfig.serviceURL = "http://192.168.1.103:8888/logged.php";
+            DataConfig.serviceURL = baseURL + "logged.php";
             if(NetworkUtil.isOnline(context)) {
                 final JSONObject params = new JSONObject();
                 params.put("email", ltrim(rtrim(email)));

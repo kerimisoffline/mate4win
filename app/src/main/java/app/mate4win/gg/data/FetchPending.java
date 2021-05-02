@@ -10,7 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import app.mate4win.gg.model.Cache;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.NetworkUtil;
 
@@ -18,7 +17,7 @@ import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 
-public class DeleteGroup {
+public class FetchPending {
 
     private String e_message="";
     private String errorMessage;
@@ -26,24 +25,27 @@ public class DeleteGroup {
     private JSONObject jsonObject;
     int CallCount = 0;
 
-    public void Call(final Context context, String group_id) {
+    public void Call(final Context context, String group_id, String member_id, Boolean isDelete) {
         if(!NetworkUtil.isOnline(context) || CallCount >= call_count)
             return;
 
         CallCount++;
         final JSONObject params = new JSONObject();
         try {
-            DataConfig.serviceURL =  baseURL + "delete_group.php";
+            DataConfig.serviceURL = baseURL + "pending.php";
+            if(isDelete)
+                params.put("command", "delete");
             params.put("group_id", group_id);
+            params.put("member_id", member_id);
 
             jsonObject = new CallService(context).getService(params, "PUT", null, false);
             if(jsonObject == null)
-                Call(context, group_id);
+                Call(context, group_id, member_id, isDelete);
             else{
                 if(jsonObject.has("result"))
                     Response(jsonObject);
                 else
-                    Call(context, group_id);
+                    Call(context, group_id, member_id, isDelete);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -61,32 +63,13 @@ public class DeleteGroup {
                     if (!result_bool) {
                         e_message = "";
                         if (jsonObject.has("messages") && isNotNull(jsonObject.getString("messages"))) {
-                            String phoneNumberVal = "", passwordVal = "";
-                            try {
-                                if (jsonObject.getJSONObject("messages").has("phone_number") && isNotNull(jsonObject.getJSONObject("messages").getString("phone_number")))
-                                    phoneNumberVal = jsonObject.getJSONObject("messages").getString("phone_number");
-                                if (jsonObject.getJSONObject("messages").has("password") && isNotNull(jsonObject.getJSONObject("messages").getString("password")))
-                                    passwordVal = jsonObject.getJSONObject("messages").getString("password");
-
-
-                                if (!phoneNumberVal.equals("")) {
-                                    e_message = phoneNumberVal;
+                            if (e_message.equals("")) {
+                                for (int i = 0; i < jsonObject.getJSONArray("messages").length(); i++) {
+                                    e_message += jsonObject.getJSONArray("messages").getString(i) + "\n";
                                 }
-                                if (!passwordVal.equals("")) {
-                                    e_message += "\n" + passwordVal;
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-
-                                if (e_message.equals("")) {
-                                    for (int i = 0; i < jsonObject.getJSONArray("messages").length(); i++) {
-                                        e_message += jsonObject.getJSONArray("messages").getString(i) + "\n";
-                                    }
-                                }
-
                             }
                             setErrorMessage(e_message);
+
                         }else if (jsonObject.has("errors") && isNotNull(jsonObject.getString("errors"))) {
                             JSONArray errorsArray = jsonObject.getJSONArray("errors");
                             if(errorsArray!=null && errorsArray.length()>0){

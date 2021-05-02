@@ -21,6 +21,7 @@ import app.mate4win.gg.model.Post;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.NetworkUtil;
 
+import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 
@@ -42,7 +43,7 @@ public class FetchPost {
         CallCount++;
         try {
             String cache = Data.getCache(context).getCache(Cache.KEY_POSTS);
-            DataConfig.serviceURL = "http://192.168.1.103:8888/feed.php";
+            DataConfig.serviceURL = baseURL + "feed.php";
             if(NetworkUtil.isOnline(context)) {
                 final JSONObject params = new JSONObject();
                 params.put("category", category);

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,8 +21,17 @@ import java.util.List;
 
 import app.mate4win.gg.R;
 import app.mate4win.gg.model.Member;
+import app.mate4win.gg.task.AsyncResponse;
+import app.mate4win.gg.task.FetchGroupMembersTask;
+import app.mate4win.gg.task.FetchPendingTask;
+import app.mate4win.gg.task.TaskRunner;
+import app.mate4win.gg.ui.groups.GroupsPendingFragment;
+import app.mate4win.gg.util.Data;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static app.mate4win.gg.util.Config.progressDialogMessage;
+import static app.mate4win.gg.util.Data.selectedGroups;
 
 public class GroupsPendingAdapter extends RecyclerView.Adapter<GroupsPendingAdapter.ViewHolder> {
 
@@ -41,8 +52,9 @@ public class GroupsPendingAdapter extends RecyclerView.Adapter<GroupsPendingAdap
 
         LinearLayout.LayoutParams layoutParams;
 
-        @BindView(R.id.txt_pending)
-        TextView txt_pending;
+        @BindView(R.id.txt_pending) TextView txt_pending;
+        @BindView(R.id.btn_apply) AppCompatImageButton btn_apply;
+        @BindView(R.id.btn_cancel) AppCompatImageButton btn_cancel;
 
 
         ViewHolder(View view) {
@@ -66,6 +78,55 @@ public class GroupsPendingAdapter extends RecyclerView.Adapter<GroupsPendingAdap
         Member item = items.get(position);
         if(item != null) {
             holder.txt_pending.setText(item.getNick_name());
+            Member finalItem = item;
+
+            holder.btn_cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(selectedGroups!=null && selectedGroups.getId()!=null){
+                        progressDialogMessage(context, "...");
+                        if(Data.member!=null) {
+                            new TaskRunner().executeAsync(new FetchPendingTask(context, selectedGroups.getId(), finalItem.getId(),true, new AsyncResponse() {
+                                @Override
+                                public void processFinish(Object output) {
+                                    progressDialogMessage(null, null);
+
+                                    if(GroupsPendingFragment.fragment!=null)
+                                        GroupsPendingFragment.fragment.notifyData();
+                                }
+                            }));
+                        }
+                    }
+
+                }
+            });
+
+            holder.btn_apply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(selectedGroups!=null && selectedGroups.getId()!=null){
+                        progressDialogMessage(context, "...");
+                        if(Data.member!=null) {
+                            new TaskRunner().executeAsync(new FetchGroupMembersTask(context, selectedGroups.getId(), finalItem.getId(),false, new AsyncResponse() {
+                                @Override
+                                public void processFinish(Object output) {
+                                    new TaskRunner().executeAsync(new FetchPendingTask(context, selectedGroups.getId(), finalItem.getId(),true, new AsyncResponse() {
+                                        @Override
+                                        public void processFinish(Object output) {
+                                            progressDialogMessage(null, null);
+
+                                            if(GroupsPendingFragment.fragment!=null)
+                                                GroupsPendingFragment.fragment.notifyData();
+                                        }
+                                    }));
+                                }
+                            }));
+                        }
+                    }
+
+                }
+            });
+
         }
 
         item = null;

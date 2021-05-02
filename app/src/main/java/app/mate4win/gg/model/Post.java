@@ -16,6 +16,7 @@ public class Post {
     private String title;
     private String sub_title;
     private String member_count;
+    private String situation;
 
     public String getPost_id() {
         return post_id;
@@ -49,4 +50,11 @@ public class Post {
         return member_count;
     }
 
+    public String getCreator_id() {
+        return creator_id;
+    }
+
+    public String getSituation() {
+        return situation;
+    }
 }

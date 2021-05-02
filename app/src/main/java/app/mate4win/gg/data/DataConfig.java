@@ -23,6 +23,8 @@ public class DataConfig {
 
     public static String serviceURL = "http://192.168.1.103:8888/read.php";
 
+    public static String baseURL = "http://192.168.1.103:8888/";
+
     public static int call_count = 10;
 
     public static Boolean hasHttpsService = false;

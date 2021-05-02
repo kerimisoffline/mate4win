@@ -83,7 +83,7 @@ public class GroupsAdapter extends RecyclerView.Adapter<GroupsAdapter.ViewHolder
             holder.txt_sub_title.setText(item.getSub_title());
             holder.my_group.setVisibility(View.VISIBLE);
             holder.img_button.setVisibility(View.GONE);
-            String txt = item.getMember_count() + "/5";
+            String txt = item.getMember_count();
             holder.txt_member_count.setText(txt);
             txt= null;
         }

@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import app.mate4win.gg.util.Data;
 import app.mate4win.gg.util.NetworkUtil;
 
+import static app.mate4win.gg.data.DataConfig.baseURL;
 import static app.mate4win.gg.data.DataConfig.call_count;
 import static app.mate4win.gg.util.Config.isNotNull;
 import static app.mate4win.gg.util.Config.ltrim;
@@ -33,7 +34,7 @@ public class FetchNewGroup {
         CallCount++;
         final JSONObject params = new JSONObject();
         try {
-            DataConfig.serviceURL = "http://192.168.1.103:8888/new_group.php";
+            DataConfig.serviceURL = baseURL + "new_group.php";
             //params.put("command", "update");
             params.put("title", title);
             params.put("sub_title", sub_title);
