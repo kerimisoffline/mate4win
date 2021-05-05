@@ -17,6 +17,8 @@ public class Post {
     private String sub_title;
     private String member_count;
     private String situation;
+    private List<Member> pending;
+
 
     public String getPost_id() {
         return post_id;
@@ -56,5 +58,9 @@ public class Post {
 
     public String getSituation() {
         return situation;
+    }
+
+    public List<Member> getPending() {
+        return pending;
     }
 }

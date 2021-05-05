@@ -87,6 +87,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         if(item != null) {
             holder.txt_title.setText(item.getTitle());
             holder.txt_sub_title.setText(item.getSub_title());
+            holder.btn_join.setClickable(true);
             holder.my_group.setVisibility(View.GONE);
             holder.btn_join.setVisibility(View.VISIBLE);
 
@@ -103,24 +104,41 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 }
             }
 
-            Post finalItem = item;
-            holder.btn_join.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    progressDialogMessage(context, "...");
-                    if(Data.member!=null) {
-                        new TaskRunner().executeAsync(new FetchPendingTask(context, finalItem.getGroup_id(),Data.member.getId(),false, new AsyncResponse() {
-                            @Override
-                            public void processFinish(Object output) {
-                                progressDialogMessage(null, null);
-
+            if(Data.posts!=null) {
+                for (Post p : Data.posts) {
+                    if(p!=null && p.getGroup_id().equals(item.getGroup_id())) {
+                        for (Member m : p.getPending()){
+                            if(Data.member.getId().equals(m.getId())) {
+                                holder.my_group.setVisibility(View.GONE);
+                                holder.btn_join.setVisibility(View.VISIBLE);
                                 holder.btn_join.setImageDrawable(holder.ic_hourglass);
+                                holder.btn_join.setClickable(false);
                             }
-                        }));
+                        }
                     }
-
                 }
-            });
+            }
+
+            Post finalItem = item;
+            if(holder.btn_join.isClickable()) {
+                holder.btn_join.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        progressDialogMessage(context, "...");
+                        if (Data.member != null) {
+                            new TaskRunner().executeAsync(new FetchPendingTask(context, finalItem.getGroup_id(), Data.member.getId(), false, new AsyncResponse() {
+                                @Override
+                                public void processFinish(Object output) {
+                                    progressDialogMessage(null, null);
+
+                                    holder.btn_join.setImageDrawable(holder.ic_hourglass);
+                                }
+                            }));
+                        }
+
+                    }
+                });
+            }
 
 
             String txt = item.getMember_count();

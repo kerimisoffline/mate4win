@@ -64,6 +64,8 @@
 
 
     <string name="sure_delete">Grubu silmek istediğinize emin misiniz?</string>
+    <string name="sure_member_delete">%1$s yi gruptan çıkarmak istediğinize emin misiniz?</string>
+    <string name="sure_owner_delete">Gruptan çıkmak istediğinize emin misiniz?</string>
     <string name="connection">İnternet bağlantın sıkıntılı</string>
 
 

@@ -16,8 +16,10 @@ import app.mate4win.gg.activity.MainActivity;
 import app.mate4win.gg.data.DeleteGroup;
 import app.mate4win.gg.data.FetchNewGroup;
 import app.mate4win.gg.data.FetchPostSituation;
+import app.mate4win.gg.model.Groups;
 import app.mate4win.gg.task.AsyncResponse;
 import app.mate4win.gg.task.DeleteGroupTask;
+import app.mate4win.gg.task.FetchGroupsTask;
 import app.mate4win.gg.task.FetchPostSituationTask;
 import app.mate4win.gg.task.NewGroupTask;
 import app.mate4win.gg.ui.BaseFragment;
@@ -26,6 +28,8 @@ import app.mate4win.gg.util.Data;
 import butterknife.BindView;
 
 import static app.mate4win.gg.util.Config.progressDialogMessage;
+import static app.mate4win.gg.util.Data.groups;
+import static app.mate4win.gg.util.Data.selectedGroups;
 
 public class GroupsSettingsFragment extends BaseFragment {
 
@@ -34,6 +38,7 @@ public class GroupsSettingsFragment extends BaseFragment {
 
     @BindView(R.id.delete_group) FrameLayout dlt_group;
     @BindView(R.id.switch_post) SwitchMaterial switch_post;
+    @BindView(R.id.update_group_members) FrameLayout update_members;
 
     public GroupsSettingsFragment(){
         layoutId = R.layout.fragment_group_settings;
@@ -75,6 +80,13 @@ public class GroupsSettingsFragment extends BaseFragment {
             });
         }
 
+        update_members.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(MainActivity.Current!=null)
+                    MainActivity.Current.Navigate(R.id.navigation_groups_members,null,null,null);
+            }
+        });
 
         dlt_group.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,8 +117,6 @@ public class GroupsSettingsFragment extends BaseFragment {
                                         }
                                     }));
                                 }
-                                if(MainActivity.Current!=null)
-                                    MainActivity.Current.Navigate(R.id.navigation_groups,null,null,null);
                             }
                         })
                         .setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
